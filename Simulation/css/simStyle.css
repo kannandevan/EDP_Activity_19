@@ -182,3 +182,88 @@ body {
   top: 49%;
   left: 9%;
 }
+
+/* scene 2 end */
+
+
+
+/* scene 3 */
+
+.scroll-bg-3 {
+  width: 60%;
+  height: 19%;
+  left: 20%;
+  top: 9%;
+}
+
+.binocular {
+  width: 33%;
+  top: 37%;
+  left: 12%;
+}
+
+.main-heading-3 {
+  left: 50%;
+  top: 17.5%;
+  transform: translate(-50%, -17.5%);
+  width: 60%;
+  text-align: center;
+}
+
+.main-heading-3 h1 {
+  font-size: 3vw;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.points-1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  left: 48%;
+  top: 33%;
+  width: 40%;
+  font-size: 2vw;
+  font-weight: normal;
+
+}
+
+ul li::marker {
+  font-size: 4vw;
+  /* bullet size */
+}
+
+.next-btn {
+  position: absolute;
+  top: 85%;
+  left: 77%;
+  transform: translate(-50%, -50%);
+  padding: 14px 50px 14px 24px;
+  background: #6c5ce7;
+  /* purple */
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* arrow head */
+.next-btn::after {
+  content: "";
+  position: absolute;
+  top: -16px;
+  right: -32px;
+  width: 0;
+  height: 0;
+  border-top: 42px solid transparent;
+  border-bottom: 42px solid transparent;
+  border-left: 33px solid #6c5ce7;
+}
+
+.next-btn:hover {
+  background: #180d7c;
+}
+
+.next-btn:hover::after {
+  border-left-color: #180d7c;
+}
