@@ -1,0 +1,132 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.d-none {
+  display: none;
+}
+
+.sim-body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #b4b4b4;
+  /* adding black background for letterboxing effect */
+  overflow: hidden;
+}
+
+.text-white {
+  color: white;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.level_1_01 {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 100vh;
+  margin: auto;
+}
+
+.scene {
+  width: 100%;
+  height: 100%;
+}
+
+.scene img {
+  position: absolute;
+  max-width: 100%;
+}
+
+.level_1_01 img {
+  position: absolute;
+  max-width: 100%;
+  /* Ensure images don't overflow */
+}
+
+.bg {
+  width: 100%;
+  /* height: 100%; */
+  object-fit: cover;
+}
+
+.scroll-bg {
+  width: 77%;
+  height: 30%;
+  /* Maintain aspect ratio */
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -45%);
+}
+
+.treasure-box {
+  width: 9%;
+  top: 28%;
+  left: 76.5%;
+}
+
+.pyramid {
+  width: 28%;
+  top: 24%;
+  left: 45%;
+}
+
+.ship {
+  width: 14%;
+  top: 27%;
+  left: 25.5%;
+}
+
+.island {
+  width: 14%;
+  top: 17%;
+  left: 12%;
+}
+
+.main-heading {
+  left: 50%;
+  top: 56%;
+  transform: translate(-50%, -44%);
+  width: 60%;
+  text-align: center;
+}
+
+.main-heading h1 {
+  font-size: 4vw;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.scroll-bg-2 {
+  position: absolute;
+  width: 69%;
+  height: 19%;
+  left: 15%;
+  top: 3%;
+  opacity: 0.8;
+}
+
+.main-heading-2 {
+  left: 50%;
+  top: 12%;
+  transform: translate(-50%, -12%);
+  width: 60%;
+  text-align: center;
+}
+
+.main-heading-2 h1 {
+  font-size: 2.5vw;
+  margin: 0;
+  white-space: nowrap;
+}

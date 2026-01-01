@@ -1,0 +1,863 @@
+body {
+  /* background-color: white; */
+  /* font-family:url(../../../APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/ARENA-CONDENSED-3.TTF); */
+  background-color: #5a89b3;
+  background-repeat: no-repeat;
+}
+
+.navBg {
+  background-color: rgb(32 186 198);
+}
+.NavBrandClr {
+  background-color: #098481;
+  font-size: 2.2em;
+}
+.secondnavBg {
+  background-color: #f8f9fa;
+  z-index: 2;
+}
+.navBrandHeight {
+  height: 13%;
+}
+.headingProperties {
+  font-size: 2.2em;
+}
+.secondNavheight {
+  /* height: 10%; */
+}
+.mainscreen {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* cstome nav style */
+
+.custom-paddingHeader {
+  padding-top: 36px;
+  padding-bottom: 35px;
+}
+
+.button-gradient {
+  padding: 10px 20px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 21px;
+  /* width: 122px; */
+  justify-content: center;
+  text-align: -webkit-center;
+  padding: 1px;
+  color: black;
+  padding-left: 16px;
+  padding-right: 18px;
+}
+
+.button-gradient:hover {
+  transition: transform 0.3s ease;
+  background: linear-gradient(45deg, #a800ff, #ff007a);
+  color: white;
+}
+.NavActive {
+  transition: transform 0.3s ease;
+  background: linear-gradient(45deg, #a800ff, #ff007a);
+  color: white !important;
+}
+
+.theoryContainer {
+  border-radius: 28px;
+  /* background-color: antiquewhite; */
+  background-color: #c6c5c536;
+  overflow: auto;
+  /* overflow: hidden; */
+  height: 70vh;
+}
+.simulationContainer {
+  border-radius: 28px;
+  /* background-color: antiquewhite; */
+  background-color: #c6c5c536;
+  overflow: auto;
+  /* overflow: hidden; */
+  height: 72vh;
+}
+
+.theoryContainerResources {
+  border-radius: 28px;
+  /* background-color: antiquewhite; */
+  background-color: #c6c5c536;
+  overflow: auto;
+  /* overflow: hidden; */
+  height: 70vh;
+}
+
+.container.theoryContainerResources {
+  h1 {
+    font-family: "Noto Sans", "Noto Sans Malayalam", "Noto Sans Telugu",
+      sans-serif;
+    font-size: 18px;
+    color: #000;
+    padding-left: 15px;
+    text-align: left;
+  }
+  strong {
+    font-weight: bold;
+  }
+  ul {
+    font-family: "Noto Sans", "Noto Sans Malayalam", "Noto Sans Telugu",
+      sans-serif;
+    font-size: 14px;
+    color: #000;
+    text-align: justify;
+    padding-right: 25px;
+    padding-left: 50px;
+    line-height: 22px;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* Specified thoery style div */
+.theoryContainerTheory {
+  border-radius: 28px;
+  /* background-color: antiquewhite; */
+  background-color: #c6c5c536;
+  overflow: auto;
+  /* overflow: hidden; */
+  height: 70vh;
+}
+.container.theoryContainerTheory {
+  font-family: "Noto Sans", "Noto Sans Malayalam", "Noto Sans Telugu",
+    sans-serif;
+  h1 {
+    text-align: left;
+
+    color: #000;
+    margin: 9px 0 !important;
+    font-size: 24px;
+    /* background-color: red; */
+    /* padding-left: 5px; */
+    /* font-weight: 500; */
+    line-height: 1.1;
+  }
+  p {
+    font-family: "Noto Sans", "Noto Sans Malayalam", "Noto Sans Telugu",
+      sans-serif;
+    font-size: 14px;
+    color: #000;
+    text-align: justify;
+    padding-right: 25px;
+    /* padding-left: 35px; */
+    line-height: 18px;
+  }
+  h2 {
+    font-family: "Noto Sans", "Noto Sans Malayalam", "Noto Sans Telugu",
+      sans-serif;
+    color: #000;
+    font-size: 18px;
+    font-weight: normal;
+    /* padding-left: 34px; */
+    width: 90% !important;
+    margin: 9px 0 !important;
+  }
+}
+
+.contentWindow {
+  height: 78vh;
+  /* overflow: auto; */
+}
+.align-right {
+  text-align: right;
+}
+
+.nextButton {
+  position: relative;
+  top: -25px;
+  left: -28px;
+}
+.buttonarrowClr {
+  color: rgb(32 186 198);
+}
+
+/* Loader */
+
+/* Assessment style starting */
+
+/* .quiz-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+} */
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.question {
+  margin-bottom: 15px;
+  font-size: 1.2vw;
+  font-family: lato;
+  height: 76%;
+}
+
+/* button {
+  width: 100%;
+  padding: 10px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+} */
+
+button:hover {
+  background-color: #4cae4c;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: center;
+  /* width: 20%; */
+}
+/* .radioBtn {
+  transform: scale(1.6);
+} */
+
+/* assessment end */
+
+.radioBtn {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Scale adjustments for different screen sizes */
+@media (max-width: 576px) {
+  /* Extra small devices (phones) */
+  .radioBtn {
+    transform: scale(0.8);
+  }
+}
+
+@media (min-width: 577px) and (max-width: 980px) {
+  /* Small devices (tablets) */
+  .radioBtn {
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 769px) {
+  /* Medium devices and up */
+  .radioBtn {
+    transform: scale(1.6);
+  }
+}
+
+/* Pop up answer screen Style */
+
+/* feedbackpageStyles */
+
+.rating {
+  display: flex;
+  justify-content: center;
+  font-size: 2vw;
+  font-weight: bold;
+  color: #ff9800;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+/* Stars container */
+.stars {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.star {
+  font-size: 83px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.star:hover,
+.star.active {
+  color: #ff9800;
+}
+
+/* Textarea for reviews */
+textarea {
+  width: 100%;
+  min-height: 100px;
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+  background: #f9f9f9;
+}
+
+textarea:focus {
+  border-color: #4caf50;
+  outline: none;
+  background: #fff;
+}
+
+/* Submit button */
+button {
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+/* Reviews section */
+.reviews {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.reviews p {
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+}
+/* Simulation window style */
+#mainDiv {
+  width: 100%;
+  height: 100%;
+  border: solid;
+  position: relative;
+}
+
+#quiz {
+  background-color: #ffffff;
+  border-radius: 11px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  max-width: 100%;
+  width: 99%;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.options label {
+  /* display: block; */
+  padding: 10px;
+  margin: 5px 0;
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.options label:hover {
+  background: #e0f7fa;
+  transform: scale(1.02);
+}
+
+/* .options input[type="radio"] {
+  margin-right: 10px;
+} */
+
+/* Checking */
+label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.radioBtn {
+  order: 2;
+}
+
+img {
+  order: 0;
+}
+
+label span,
+label:not(:has(span)) {
+  order: 1;
+}
+/* style */
+
+.QuestionOutofNumber {
+  padding-left: 89%;
+  font-weight: 600;
+  font-size: 1.4vh;
+}
+.questionButton {
+  margin-top: 1%;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  /* padding: 10px 20px; */
+  border-radius: 4px;
+  font-size: 1vw;
+  cursor: pointer;
+  transition: background 0.3s ease;
+    margin-bottom: 35px;
+
+}
+.assessmentButtons {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  /* justify-content: space-between; */
+  justify-content: flex-end;
+}
+
+/* Question AnswerAssessment */
+.chart-container {
+  width: 300px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.progress-circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(#4caf50 calc(var(--percentage) * 1%), #ccc 0);
+  display: inline-block;
+}
+
+.progress-circle::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.progress-circle span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* cnavas */
+.styled-canvas {
+  width: 100%;
+  max-width: 500px; /* Maximum width for responsiveness */
+  height: auto; /* Adjust height dynamically */
+  border: 2px solid #4caf50; /* Add a border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: #f9f9f9; /* Light background */
+  padding: 10px; /* Inner padding for spacing */
+}
+
+#myBarChart2 {
+  pointer-events: none;
+}
+
+/*  */
+
+.progress-circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #4caf50 calc(var(--percentage) * 1%),
+    #e6e6e6 calc(var(--percentage) * 1%)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Text inside the circle */
+.progress-circle span {
+  position: absolute;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.progress-circle span:first-child {
+  top: 40%;
+}
+
+#UnitNumber {
+  position: absolute;
+  top: 24%;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .custom-paddingHeader {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+@media (min-width: 576px) {
+  .mx-sm-5 {
+    margin-right: 3rem !important;
+    margin-left: 2rem !important;
+  }
+}
+/* @media (min-width: 992px) {
+  .container {
+      max-width: 1102px;
+  }
+} */
+
+.finalVivaAnimationsection {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.animationGifForviva {
+  display: flex;
+  flex-direction: column-reverse; /* Moves text above the video */
+  align-items: center;
+  text-align: center;
+}
+
+.ScoreForviva {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000000;
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+  margin-top: -14%;
+  margin-left: -4%;
+  align-items: center;
+}
+.scoreText {
+  font-size: 2vh;
+  color: white;
+}
+#maximizeButton {
+  position: absolute;
+  left: 92%;
+  top: -4%;
+  font-size: xx-large;
+}
+
+#quizR {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f4f8 100%);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  max-width: auto;
+  margin: auto;
+  padding: 123px;
+  text-align: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 50vh;
+}
+
+.yourscoreQuiz {
+  color: #1a3c5e;
+  font-size: 2em;
+  margin: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.yourscoreTitle {
+  color: #d32f2f;
+  font-size: 3.5em;
+  margin: 12px 0;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.yourscoreFeedback {
+  color: #4a5568;
+  font-size: 2.1em;
+  line-height: 1.6;
+  margin: 12px 0 0;
+  padding: 0 20px;
+  font-weight: 600;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) and (max-height: 800px) {
+  #quizR {
+    max-width: 95%;
+    padding: 20px;
+  }
+
+  .yourscoreQuiz {
+    font-size: 1.6em;
+  }
+
+  .yourscoreTitle {
+    font-size: 1.3em;
+  }
+
+  .yourscoreFeedback {
+    font-size: 1em;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 1000px) {
+  #quizR {
+    max-width: 95%;
+    padding: 20px;
+  }
+
+  .yourscoreQuiz {
+    font-size: 1.1em;
+  }
+
+  .yourscoreTitle {
+    font-size: 1.3em;
+  }
+
+  .yourscoreFeedback {
+    font-size: 1em;
+    padding: 0 10px;
+  }
+}
+@media (max-width: 1500px) {
+  #quizR {
+    max-width: 95%;
+    padding: 20px;
+  }
+
+  .yourscoreQuiz {
+    font-size: 1.3em;
+  }
+
+  .yourscoreTitle {
+    font-size: 1.4em;
+  }
+
+  .yourscoreFeedback {
+    font-size: 1.7em;
+    padding: 0 10px;
+  }
+}
+
+/* seessmentImgcss */
+
+
+.assessmentbgimg {
+  width: 45%;
+  position: relative;
+  left: 24%;
+  float: inline-start;
+}
+
+/* Fix layout after tooltip wrapper is added */
+.optionsimg {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 28%;
+  left: -12%;
+  margin-top: 6%;
+  position: relative;
+}
+
+/* Make wrapper behave like image used to */
+.tooltip-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -3%;
+  width: -webkit-fill-available;
+}
+
+/* Image styling */
+.option-image {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.option-image:hover {
+  transform: scale(1.2);
+}
+
+/* Individual image widths */
+#option-image1 {
+  width: 52%;
+}
+#option-image2 {
+  width: 72%;
+  margin-left: 3%;
+}
+#option-image3 {
+  width: 87%;
+}
+#option-image4 {
+  width: 112%;
+}
+#option-image5 {
+  width: 133%;
+}
+
+/* Custom tooltip styling */
+.custom-tooltip {
+  visibility: hidden;
+  background-color: #000;
+  color: #fff;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tooltip-wrapper:hover .custom-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+
+/* 
+
+<div class="checkbox-wrapper-18">
+  <div class="round">
+    <input type="checkbox" id="checkbox-18" />
+    <label for="checkbox-18"></label>
+  </div>
+</div> */
+
+
+  .checkbox-wrapper-18 .round {
+    position: relative;
+  }
+
+  .checkbox-wrapper-18 .round label {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 28px;
+    width: 28px;
+    display: block;
+  }
+
+  .checkbox-wrapper-18 .round label:after {
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 8px;
+    opacity: 0;
+    position: absolute;
+    top: 9px;
+    transform: rotate(-45deg);
+    width: 12px;
+  }
+
+  .checkbox-wrapper-18 .round input[type="checkbox"] {
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+  }
+
+  .checkbox-wrapper-18 .round input[type="checkbox"]:checked + label {
+    background-color: #66bb6a;
+    border-color: #66bb6a;
+  }
+
+  .checkbox-wrapper-18 .round input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+  }
+
+/* match the following */
+
+.match-container {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  
+}
+
+.match-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 45%;
+}
+
+.match-left, .match-right {
+  padding: 10px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  cursor: grab;
+  border: 1px solid #ccc;
+  font-size: .8vw;
+}
+/* external css */
+
+.fontsizeassessment {
+  font-size: 18px;
+}
+.displayandgap{
+  display: flex; gap: 30px;
+}
+.w-48{
+  width: 48%;
+}
+.checkdestyles{
+  display: flex; align-items: center; flex-direction: row-reverse; margin-bottom: 15px;
+}
+.marginright{
+  margin-right: 10px;
+}
+.arrow {
+  font-size: 1.5vw;
+  color: #555;
+  user-select: none;
+}

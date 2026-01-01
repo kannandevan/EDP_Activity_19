@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EDP</title>
+
+  <link href="css/boostrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/FontAwsome/css/all.css"/>
+  <link rel="stylesheet" href="./style.css" />
+  <!-- <script src="js/jquery3.6.0.min.js"></script> -->
+  <script src="js/boostrapbundle.js"></script>
+     <script>
+	document.addEventListener("DOMContentLoaded", function() {
+		console.clear()
+		let styleTag = document.createElement('style');
+		styleTag.setAttribute('nonce', 'RANDOM_NONCE');
+		document.head.appendChild(styleTag);
+		let counter = 0;
+		let cssText = '';
+		document.querySelectorAll('*[style]').forEach(el => {
+			let inlineStyle = el.getAttribute('style').trim();
+			if (inlineStyle) {
+			counter++;
+			// Generate a unique class name
+			let className = `auto-style-edp-${counter}`;
+			// Add the new class to the element
+			el.classList.add(className);
+			// Remove the inline style
+			el.removeAttribute('style');
+			// Add the CSS rule manually into a text string
+			cssText += `.${className} { ${inlineStyle} }\n`;
+			}
+		});
+		// Write all CSS rules at once into the style tag
+		styleTag.innerHTML = cssText;
+		console.log(`Moved ${counter} inline styles into <style> tag.`);
+	});
+</script>
+</head>
+
+<body>
+  <div class="container p-3 mainscreen">
+    <nav class="navbar navbar-expand-lg navBg custom-paddingHeader p-0">
+      <!-- <div class="container p-0"> -->
+      <div class="navbar-brand px-md-5 px-sm-2 NavBrandClr text-light custom-paddingHeader navBrandHeight">
+        Unit 5
+      </div>
+      <!-- <span >Unit 1</span> -->
+      <div class="navbar-text me-auto p-0 text-light d-flex align-items-center gap-3">
+        <span><i class="fa-solid fa-lightbulb fa-large text-light d-none d-md-block fs-1"></i></span>
+       <span class="fs-1">Activity 7 :CONCEPT OF MARKET</span>
+      </div>
+
+     <div class="nav-item px-2 px-md-5" onclick="location.href='../../indexUnit3.html'">
+        <i class="fa-solid fa-house fa-2x text-light"></i>
+      </div>
+      <!-- </div> -->
+    </nav>
+    <!-- Second nav -->
+    <nav class="navbar navbar-expand-lg bg-light secondNavheight">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center gap-1 py-1 secondnavBg" id="navbarNav">
+          <ul class="navbar-nav d-flex justify-content-center mb-0">
+
+            <!-- p2was hided to all the nav -->
+            <li class="nav-item mx-3  py-2 py-sm-0">
+              <a class="nav-link fs-5 text-uppercase button-gradient" aria-current="page" href="index.html">Theory</a>
+            </li>
+            <li class="nav-item mx-3  py-2 py-sm-0">
+              <a class="nav-link fs-5 text-uppercase button-gradient NavActive" aria-current="page" href="Simulation.html">Activity</a>
+            </li>
+            <li class="nav-item mx-3 py-2 py-sm-0 ">
+              <a class="nav-link fs-5 text-uppercase button-gradient" aria-current="page" href="assessment.html">Assessment</a>
+            </li>
+            <li class="nav-item mx-3 py-2 py-sm-0 ">
+              <a class="nav-link fs-5 text-uppercase button-gradient" aria-current="page" href="Resources.html">Resource</a>
+            </li>
+            <li class="nav-item mx-3 py-2 py-sm-0 ">
+              <a class="nav-link fs-5 text-uppercase button-gradient" aria-current="page" href="feedback.html">Feedback</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="section bg-light p-3">
+      <div class="container-fluid p-3 contentWindow">
+        <div class="container-fluid simulationContainer p-5">
+          <!-- Responsive iframe container -->
+          <div class="embed-responsive embed-responsive-16by9">
+            <div class="FullScreenButton">
+              <button id="FullScreenButton" class="btn btn-primary" style="font-size: 1vh;">Full Screen</button>
+            </div>
+            <iframe class="embed-responsive-item"  id="SimulationIframe" src="./Simulation/index.html" title="Olabs EDP" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<style nonce="RANDOM_NONCE">
+  .simulationContainer {
+    max-width: 100%;
+  }
+
+  .embed-responsive {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
+  }
+
+  .embed-responsive iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .FullScreenButton {
+    margin-left: auto;
+    /* position: fixed; */
+    position: static;
+    /* background-color: white; */
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    cursor: pointer;
+    z-index: 999;
+    right: 1%;
+    top: 2%;
+    width: 20%;
+    height: 1vh;
+    /* min-width: 80px; */
+    /* min-height: 40px; */
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    display: flex
+;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 1rem;
+    font-size: 1.7vh;
+    transition: all 0.3s ease-in-out;
+    /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); */
+
+}
+
+.fullscreenButton:hover {
+  /* background-color: black; */
+  color: white;
+}
+
+</style>
+  
+<script>
+  // console.log(FullScreenButton, SimulationIframe);
+  document.addEventListener("DOMContentLoaded", function () {
+  const maximizeButton = document.getElementById("FullScreenButton");
+  const iframe = document.getElementById("SimulationIframe");
+
+  maximizeButton.addEventListener("click", function () {
+
+      if (iframe.requestFullscreen) {
+          iframe.requestFullscreen();
+      } else if (iframe.mozRequestFullScreen) { // Firefox
+          iframe.mozRequestFullScreen();
+      } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+          iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) { // IE/Edge
+          iframe.msRequestFullscreen();
+      }
+  });
+});
+</script>
+
+</html>
