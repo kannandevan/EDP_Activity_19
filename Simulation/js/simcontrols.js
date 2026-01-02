@@ -2,6 +2,31 @@ $(document).ready(function () {
   let startTime = Date.now();
   let dropCount = 0;
 
+  // --- Level Flow ---
+
+  // 1. Intro -> Roadmap (Auto after 5s)
+  setTimeout(function () {
+    $('.level_1_01').fadeOut(500, function () {
+      $('.level_1_02').removeClass('d-none').hide().fadeIn(500);
+    });
+  }, 5000);
+
+  // 2. Roadmap -> Scene 3 (Click Start)
+  // Trying both ID and class to be safe based on HTML inspection
+  $('#start-arrow, .start-arrow, .start-arrow-text').click(function () {
+    $('.level_1_02').fadeOut(500, function () {
+      $('.level_1_03').removeClass('d-none').hide().fadeIn(500);
+    });
+  });
+
+  // 3. Scene 3 -> Game (Click Next)
+  $('.next-btn').click(function () {
+    $('.level_1_03').fadeOut(500, function () {
+      $('.level_1_04').removeClass('d-none').hide().fadeIn(500);
+      startTime = Date.now(); // Reset timer when game starts
+    });
+  });
+
   // Function to manage draggable state based on drop count
   function updateDraggableState() {
     let filledCount = 0;
