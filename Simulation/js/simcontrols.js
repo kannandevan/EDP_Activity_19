@@ -113,33 +113,53 @@ $(document).ready(function () {
 
   $('.level-1-submit-btn').click(function () {
     let collectedAnswers = [];
-    let selectedCards = []; // To look up full feedback if needed, but we can map from text.
-
-    $('.bubble').each(function () {
-      if (!$(this).hasClass('invisible-bubble')) {
+    $('.box-div .bubble').each(function () {
+      if (!$(this).hasClass('invisible-bubble') && $(this).data('slot')) {
         collectedAnswers.push($(this).text().trim());
       }
     });
 
     if (collectedAnswers.length < 3) {
-      alert("Please select 3 items before submitting.");
+      $('#validation-modal').addClass('active');
       return;
     }
 
-    // Scoring Logic
+    // --- Scoring & Data ---
+    const cardData = {
+      'A': {
+        text: "Riya starts an online thrift store after noticing college students’ demand for budget fashion.",
+        status: 'correct',
+        icon: '✔️'
+      },
+      'B': {
+        text: "Amit designs an app for his school after seeing issues in attendance tracking, though he knows it may need upgrades later.",
+        status: 'correct',
+        icon: '✔️'
+      },
+      'C': {
+        text: "Neha waits until her uncle gives her advice before finalizing her shop idea.",
+        status: 'warning',
+        icon: '⚠️'
+      },
+      'D': {
+        text: "Raj keeps postponing his website launch because he wants it perfect before showing anyone.",
+        status: 'warning',
+        icon: '⚠️'
+      },
+      'E': {
+        text: "Simran begins selling handmade soaps when neighbors request them, planning to refine her product as demand grows.",
+        status: 'correct',
+        icon: '✔️'
+      },
+      'F': {
+        text: "Arjun ignores a friend’s call about discussing a business idea since he feels it may not be serious.",
+        status: 'wrong',
+        icon: '❌'
+      }
+    };
+
     let score = 0;
     let correctSet = new Set(['A', 'B', 'E']);
-    let feedbackMsg = "";
-
-    // Map for feedback quotes
-    const feedbackData = {
-      'A': "✅ Riya starts an online thrift store after noticing college students’ demand for budget fashion.\n(Clear proactive step, spotting demand and acting fast.)\n",
-      'B': "✅ Amit designs an app for his school after seeing issues in attendance tracking, though he knows it may need upgrades later.\n(Shows initiative even with imperfections, balancing quick action + learning mindset.)\n",
-      'C': "⚠️ Neha waits until her uncle gives her advice before finalizing her shop idea.\n(Some initiative shown, but slowed by over-dependence on others.)\n",
-      'D': "⚠️ Raj keeps postponing his website launch because he wants it perfect before showing anyone.\n(Care about quality is good, but waiting too long shows missed opportunity.)\n",
-      'E': "✅ Simran begins selling handmade soaps when neighbors request them, planning to refine her product as demand grows.\n(Takes action and tests the idea with real customers—initiative + adaptability.)\n",
-      'F': "❌ Arjun ignores a friend’s call about discussing a business idea since he feels it may not be serious.\n(Missed opportunity, shows lack of initiative.)\n"
-    };
 
     collectedAnswers.forEach(ans => {
       if (correctSet.has(ans)) {
@@ -147,27 +167,76 @@ $(document).ready(function () {
       } else {
         score -= 1;
       }
-      if (feedbackData[ans]) {
-        feedbackMsg += feedbackData[ans] + "\n";
-      }
     });
 
     // Time Bonus
     let endTime = Date.now();
     let timeTaken = (endTime - startTime) / 1000;
+    let gotBonus = false;
     if (timeTaken < 30) {
       score += 5;
+      gotBonus = true;
     }
 
     if (score > 20) score = 20;
+    if (score < 0) score = 0;
 
-    // Log Score
-    console.log("score1 = " + score);
+    // console.log("score1 = " + score);
 
-    // Show Feedback
-    // alert(feedbackMsg);
+    // --- UI Transition ---
+    $('.level_1_04').addClass('d-none');
+    $('.level-1-submit-btn').addClass('d-none');
+    $('.level_1_05').removeClass('d-none');
 
-    // Optional: Redirect or visual Success if score is good?
-    // User request was simple: console score and show feedback quotes.
+    // --- Populate Score Chart ---
+    $('.score-chart .point span').text(score);
+
+    if (gotBonus) {
+      $('.bonus-point').show();
+    } else {
+      $('.bonus-point').hide();
+    }
+
+    // Stars
+    let starsHtml = "⭐";
+    if (score >= 20) starsHtml = "⭐⭐⭐";
+    else if (score >= 10) starsHtml = "⭐⭐";
+
+    // Target the span that contains 'star,star,star' (it is the last span child usually or exact match)
+    // Based on HTML: <span>100</span> ... <span>star,star,star</span>
+    // I made a specific selector logic:
+    $('.score-chart span').each(function () {
+      if ($(this).text().includes('star')) {
+        $(this).text(starsHtml);
+      }
+    });
+
+    // --- Populate Review Cards & Bubbles ---
+    // Fill Box Bubbles (level_1_05 box)
+    $('#bubble-1_1').text(collectedAnswers[0]);
+    $('#bubble-2_1').text(collectedAnswers[1]);
+    $('#bubble-3_1').text(collectedAnswers[2]);
+
+    // Fill Cards
+    let cards = [$('.card-big-1'), $('.card-big-2'), $('.card-big-3')];
+
+    collectedAnswers.forEach((ans, index) => {
+      let cardEl = cards[index];
+      let data = cardData[ans];
+
+      // Left Badge (Letter)
+      cardEl.find('.badge').first().text(ans);
+
+      // Text
+      cardEl.find('p').text(data.text);
+
+      // Right Badge (Icon)
+      cardEl.find('.badge-r').text(data.icon);
+
+      // Background Color for badge-r
+      if (data.status === 'correct') cardEl.find('.badge-r').css('background', '#19a974');
+      else if (data.status === 'warning') cardEl.find('.badge-r').css('background', '#f1c40f');
+      else if (data.status === 'wrong') cardEl.find('.badge-r').css('background', '#e74c3c');
+    });
   });
 });
