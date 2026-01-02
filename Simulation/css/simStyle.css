@@ -300,7 +300,7 @@ ul li::marker {
   background-size: 100% 100%;
 
   border-radius: 14px;
-  padding: 24px 22px 24px 56px;
+  padding: 1.5% 1.5% 1.5% 3.5%;
 
   display: flex;
   align-items: center;
@@ -310,7 +310,35 @@ ul li::marker {
 }
 
 .card p {
-  font-size: 15px;
+  font-size: 1.1vw;
+  line-height: 1.6;
+  color: #000;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2;
+}
+
+.card-big {
+  position: absolute;
+  width: 24.2%;
+  height: 12%;
+
+  background: #fff;
+  border: 1px solid #19a974;
+  background-size: 100% 100%;
+
+  border-radius: 14px;
+  padding: 1.5% 1.5% 1.5% 3.5%;
+
+  display: flex;
+  align-items: center;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.card-big p {
+  font-size: 1.1vw;
   line-height: 1.6;
   color: #000;
   margin: 0;
@@ -321,6 +349,26 @@ ul li::marker {
 .badge {
   position: absolute;
   left: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  background: #19a974;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+}
+
+.badge-r {
+  position: absolute;
+  right: -18px;
   top: 50%;
   transform: translateY(-50%);
 
@@ -386,21 +434,69 @@ ul li::marker {
   transform: translate(-50%, -18%);
 }
 
+.box-div {
+  position: absolute;
+  width: 17%;
+  height: 18%;
+  left: 42%;
+  top: 74%;
+  /* background-color: red; */
+}
+
+.box-div-2 {
+  position: absolute;
+  width: 17%;
+  height: 18%;
+  left: 14%;
+  top: 74%;
+  /* background-color: red; */
+}
+
 .box-back {
   position: absolute;
   z-index: 2;
-  width: 21%;
-  left: 39.5%;
-  top: 72.9%;
+  width: 100%;
+
 }
 
 
 .box-front {
   position: absolute;
   z-index: 2;
-  width: 17%;
-  left: 41.5%;
-  top: 80.9%;
+  width: 84%;
+  top: 38%;
+  left: 9%;
+  z-index: 5;
+}
+
+.bubble {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  background-color: #19a974;
+  width: 20%;
+  /* height: 30%; */
+  border-radius: 50%;
+  z-index: 4;
+  aspect-ratio: 1 / 1;
+  top: 10%;
+  border: 2px solid #277409;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.bubble-1 {
+  left: 20%;
+}
+
+.bubble-2 {
+  left: 40%;
+}
+
+.bubble-3 {
+  left: 60%;
 }
 
 .level-1-submit-btn {
@@ -423,4 +519,135 @@ ul li::marker {
   border: 5px solid #0491f0;
   background-color: #028ccc;
   color: #180d7c;
+}
+
+.card-dragged {
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 50% !important;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card-dragged .badge {
+  left: 0 !important;
+  top: 0 !important;
+  transform: none !important;
+  margin: 0 !important;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card-dragged p {
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+
+
+/* Bubble Hover Logic */
+.bubble {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.5vw;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+/* On Hover: Turn Red, Hide Text */
+.bubble:hover {
+  background-color: #e74c3c !important;
+  border-color: #c0392b !important;
+  color: transparent !important;
+}
+
+/* On Hover: Show X centered */
+.bubble:hover::after {
+  content: '✖';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5vw;
+  visibility: visible;
+}
+
+.invisible-bubble {
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+/* scene 3 end */
+
+
+/* Scene 4 */
+
+.score-chart {
+  position: absolute;
+  width: 33%;
+  aspect-ratio: 5877/5377;
+  top: 18%;
+  left: 6%;
+  background: url(../images/LEVEL_01/SCORE_CHART.png);
+  background-size: 100% 100%;
+  text-align: center;
+
+
+}
+
+.score-chart h1 {
+  margin-top: 20%;
+  font-size: 3vw;
+
+}
+
+.score-chart .point span {
+  font-size: 2.5vw;
+  padding: 2%;
+  background-color: #860000;
+  border-radius: 10%;
+  color: #fff;
+}
+
+.card-big {
+  position: absolute;
+  width: 36.2%;
+  height: 8%;
+
+  background: #fff;
+  border: 1px solid #19a974;
+  background-size: 100% 100%;
+  border-radius: 14px;
+  padding: 1.5% 1.5% 1.5% 3.5%;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.card-big p {
+  font-size: 1.1vw;
+  line-height: 1.6;
+  color: #000;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2;
+}
+
+.card-big-1 {
+  left: 45%;
+  top: 22%;
+}
+
+.card-big-2 {
+  left: 45%;
+  top: 40%;
+}
+
+.card-big-3 {
+  left: 45%;
+  top: 58%;
 }
