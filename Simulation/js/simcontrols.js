@@ -154,12 +154,12 @@ $(document).ready(function () {
       'A': {
         text: "Riya starts an online thrift store after noticing college students’ demand for budget fashion.",
         status: 'correct',
-        icon: '✔️'
+        icon: '✅'
       },
       'B': {
         text: "Amit designs an app for his school after seeing issues in attendance tracking, though he knows it may need upgrades later.",
         status: 'correct',
-        icon: '✔️'
+        icon: '✅'
       },
       'C': {
         text: "Neha waits until her uncle gives her advice before finalizing her shop idea.",
@@ -174,7 +174,7 @@ $(document).ready(function () {
       'E': {
         text: "Simran begins selling handmade soaps when neighbors request them, planning to refine her product as demand grows.",
         status: 'correct',
-        icon: '✔️'
+        icon: '✅'
       },
       'F': {
         text: "Arjun ignores a friend’s call about discussing a business idea since he feels it may not be serious.",

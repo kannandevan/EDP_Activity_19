@@ -376,7 +376,7 @@ ul li::marker {
   height: 40px;
   border-radius: 50%;
 
-  background: #19a974;
+  /* background: #19a974; */
   color: #fff;
 
   display: flex;
@@ -651,21 +651,24 @@ ul li::marker {
   left: 45%;
   top: 58%;
 }
+
 /* UI Refinements */
 .score-chart span {
-  font-size: 4vw; 
-  color: #FFD700; 
+  font-size: 4vw;
+  color: #FFD700;
 }
 
 /* Ensure result bubbles are static */
 .box-div-2 .bubble {
-  pointer-events: none; 
+  pointer-events: none;
 }
+
 .box-div-2 .bubble:hover {
   background-color: #19a974 !important;
   border-color: #277409 !important;
   color: #fff !important;
 }
+
 .box-div-2 .bubble:hover::after {
   content: none !important;
 }
@@ -697,15 +700,22 @@ ul li::marker {
   padding: 30px;
   border-radius: 15px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   width: 40%;
   border: 4px solid #f1c40f;
   animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 @keyframes popIn {
-  0% { transform: scale(0.8); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .modal-content h2 {
@@ -734,4 +744,3 @@ ul li::marker {
 .modal-btn:hover {
   background: #27ae60;
 }
-
