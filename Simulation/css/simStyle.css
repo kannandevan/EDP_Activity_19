@@ -744,3 +744,83 @@ ul li::marker {
 .modal-btn:hover {
   background: #27ae60;
 }
+
+
+.glow-circle {
+  width: 4%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  /* background: #fff; */
+  position: absolute;
+
+  /* opacity: .5; */
+  border: 3px solid yellow;
+  box-shadow: 1px 0px 4px 6px yellow;
+  cursor: pointer;
+}
+
+.glow-1 {
+  left: 19.4%;
+  top: 60.2%;
+}
+
+.glow-2 {
+  left: 39.4%;
+  top: 66.7%;
+}
+
+
+.babumon-3 {
+  width: 7.8%;
+  top: 49%;
+  left: 32%;
+}
+
+.btn-go {
+  position: absolute;
+  width: 9%;
+  aspect-ratio: 20 / 7;
+  top: 88%;
+  left: 91%;
+  transform: translate(-50%, -50%);
+  font-size: 2.1vw;
+  background: #d30545;
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-go:hover {
+  background: #88160a;
+  border-color: #c0392b;
+  color: #fff;
+}
+
+.main-heading {
+  position: absolute;
+  display: flex;
+  width: 70%;
+  aspect-ratio: 40 / 7;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-heading h1 {
+  position: absolute;
+  top: 47%;
+  font-size: 3vw;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+
+.main-heading-4 {
+  background: url(../images/LEVEL_02/TEXT_CHART.png);
+  background-size: 100% 100%;
+  top: 20%;
+}

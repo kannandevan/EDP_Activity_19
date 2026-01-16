@@ -5,11 +5,11 @@ $(document).ready(function () {
   // --- Level Flow ---
 
   // 1. Intro -> Roadmap (Auto after 5s)
-  setTimeout(function () {
-    $('.level_1_01').fadeOut(500, function () {
-      $('.level_1_02').removeClass('d-none').hide().fadeIn(500);
-    });
-  }, 5000);
+  // setTimeout(function () {
+  //   $('.level_1_01').fadeOut(500, function () {
+  //     $('.level_1_02').removeClass('d-none').hide().fadeIn(500);
+  //   });
+  // }, 5000);
 
   // 2. Roadmap -> Scene 3 (Click Start)
   // Trying both ID and class to be safe based on HTML inspection
@@ -20,7 +20,7 @@ $(document).ready(function () {
   });
 
   // 3. Scene 3 -> Game (Click Next)
-  $('.next-btn').click(function () {
+  $('.next-1').click(function () {
     $('.level_1_03').fadeOut(500, function () {
       $('.level_1_04').removeClass('d-none').hide().fadeIn(500);
       startTime = Date.now(); // Reset timer when game starts
