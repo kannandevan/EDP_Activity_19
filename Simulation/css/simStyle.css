@@ -824,3 +824,181 @@ ul li::marker {
   background-size: 100% 100%;
   top: 20%;
 }
+
+
+.sub-heading {
+  position: absolute;
+  display: flex;
+  width: 45%;
+  aspect-ratio: 40 / 7;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sub-heading h1 {
+  position: absolute;
+  top: 47%;
+  font-size: 2vw;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.sub-heading-2-1 {
+  background: url(../images/LEVEL_02/TEXT_CHART.png);
+  background-size: 100% 100%;
+  top: 12%;
+}
+
+
+.roulette {
+  position: absolute;
+  width: 30%;
+  height: 75%;
+  aspect-ratio: 35/75;
+  left: 10%;
+  top: 60%;
+  transform: translate(-10%, -60%);
+  /* aspect-ratio: 1 / 1; */
+
+
+}
+
+.roulette img {
+  position: absolute;
+  width: 100%;
+}
+
+.roulette-bg {
+  z-index: 1;
+  width: 100%;
+
+}
+
+.wheel {
+  z-index: 2;
+  width: 90% !important;
+  top: 8%;
+  left: 5%;
+}
+
+.arrow {
+  position: absolute;
+  width: 95% !important;
+  cursor: pointer;
+  left: 50%;
+  top: 22%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.bg-indigo {
+  background-color: #673ab7;
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
+.roulette-heading {
+  width: 49%;
+  left: 43%;
+  top: 21%;
+}
+
+.roulette-heading h2 {
+  font-size: 1.6vw;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.roulette-options {
+  position: absolute;
+  width: 49%;
+  left: 43%;
+  top: 45%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.roulette-options li {
+  font-size: 1.6vw;
+  border-radius: 10px;
+  padding: 3px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.roulette-options li.active {
+  background-color: #673ab7;
+  color: white;
+}
+
+.roulette-options .correct {
+  background-color: #00ff9d;
+  color: #000000;
+}
+
+.roulette-options .wrong {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+.round-arrow {
+  position: absolute;
+  width: 19% !important;
+  cursor: pointer;
+
+  /* transform: translate(-50%, -50%); */
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.round-arrow:hover {
+  width: 20% !important;
+}
+
+.round-arrow-left {
+  left: 4%;
+  top: 77%;
+}
+
+.round-arrow-right {
+  left: 86%;
+  top: 77%;
+  transform: rotate(180deg);
+  transform: scaleX(-1);
+}
+
+.btn-submit {
+  z-index: 10;
+  position: absolute;
+  aspect-ratio: 22 / 5;
+  bottom: -5%;
+  left: 50%;
+  padding: 10px;
+  transform: translate(-50%, -0%);
+  font-size: 1.8vw;
+  background: #a78905;
+  border: 3px solid #867e03;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #867e03;
+}

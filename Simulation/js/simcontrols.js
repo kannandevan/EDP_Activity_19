@@ -264,4 +264,54 @@ $(document).ready(function () {
       else if (data.status === 'wrong') cardEl.find('.badge-r').css('background', '#e74c3c');
     });
   });
+
+
+
+
+  // --- Wheel Rotation & Menu Navigation Logic ---
+  let currentWheelAngle = 0;
+  let currentOptionIndex = 0;
+  const $options = $('.roulette-options li');
+  const totalOptions = $options.length;
+
+  // Initialize first option as active
+  $options.removeClass('active');
+  $($options[currentOptionIndex]).addClass('active');
+
+  function updateActiveOption() {
+    $options.removeClass('active');
+    $($options[currentOptionIndex]).addClass('active');
+  }
+
+  $('.round-arrow-left').click(function () {
+    // Rotation
+    currentWheelAngle += 45;
+    $('.wheel').css({
+      'transform': 'rotate(' + currentWheelAngle + 'deg)',
+      'transition': 'transform 0.5s ease'
+    });
+
+    // Navigation: Left arrow = Previous Option (A -> H -> G...)
+    currentOptionIndex--;
+    if (currentOptionIndex < 0) {
+      currentOptionIndex = totalOptions - 1;
+    }
+    updateActiveOption();
+  });
+
+  $('.round-arrow-right').click(function () {
+    // Rotation
+    currentWheelAngle -= 45;
+    $('.wheel').css({
+      'transform': 'rotate(' + currentWheelAngle + 'deg)',
+      'transition': 'transform 0.5s ease'
+    });
+
+    // Navigation: Right arrow = Next Option (A -> B -> C...)
+    currentOptionIndex++;
+    if (currentOptionIndex >= totalOptions) {
+      currentOptionIndex = 0;
+    }
+    updateActiveOption();
+  });
 });
