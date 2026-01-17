@@ -5,11 +5,11 @@ $(document).ready(function () {
   // --- Level Flow ---
 
   // 1. Intro -> Roadmap (Auto after 5s)
-  // setTimeout(function () {
-  //   $('.level_1_01').fadeOut(500, function () {
-  //     $('.level_1_02').removeClass('d-none').hide().fadeIn(500);
-  //   });
-  // }, 5000);
+  setTimeout(function () {
+    $('.level_1_01').fadeOut(500, function () {
+      $('.level_1_02').removeClass('d-none').hide().fadeIn(500);
+    });
+  }, 5000);
 
   // 2. Roadmap -> Scene 3 (Click Start)
   // Trying both ID and class to be safe based on HTML inspection
@@ -315,6 +315,28 @@ $(document).ready(function () {
     updateActiveOption();
   });
 
+  // --- Level 1 to Level 2 Transition ---
+  $('.next-level-1').click(function () {
+    $('.level_1_05').fadeOut(500, function () {
+      $('.level_2_01').removeClass('d-none').hide().fadeIn(500);
+    });
+  });
+
+  // --- Level 2 Navigation ---
+  // Roadmap (level_2_01) -> Intro (level_2_02)
+  $('.btn-go').click(function () {
+    $('.level_2_01').fadeOut(500, function () {
+      $('.level_2_02').removeClass('d-none').hide().fadeIn(500);
+    });
+  });
+
+  // Intro (level_2_02) -> Wheel Game (level_2_03)
+  $('.next-2').click(function () {
+    $('.level_2_02').fadeOut(500, function () {
+      $('.level_2_03').removeClass('d-none').hide().fadeIn(500);
+    });
+  });
+
   // --- Level 2 Submit Logic ---
   $('.btn-submit').click(function () {
     // Options are mapped by index:
@@ -364,6 +386,7 @@ $(document).ready(function () {
 
   // --- Close Modal ---
   $('.close-btn').click(function () {
-    $('btn-submit').hide();
+    $('.btn-submit').hide(); // Hides the submit button after result is shown
+    $('#level-2-result-modal').removeClass('active');
   });
 });
