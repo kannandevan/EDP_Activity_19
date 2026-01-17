@@ -856,6 +856,7 @@ ul li::marker {
 
 .flex-container {
   text-align: center;
+  display: flex;
 }
 
 .p1 {
@@ -932,4 +933,84 @@ ul li::marker {
   box-shadow: none;
   border: 3px solid #c86709;
   cursor: pointer;
+}
+
+.score-msg-div {
+  display: flex;
+  gap: 26%;
+  margin-left: 7%;
+  position: absolute;
+  top: 18%;
+  width: 100%;
+  height: 70%;
+}
+
+.score-board {
+  width: 30%;
+}
+
+.imgDiv {
+  width: 15%;
+}
+
+.msgDiv {
+  width: 40%;
+  height: 36%;
+  border: 2px solid #9b9cd2;
+  border-radius: 9px;
+  margin-top: 2%;
+  background-color: white;
+}
+
+.bottomimg {
+  position: absolute;
+  top: 41%;
+  width: 65%;
+  margin: 6% 16%;
+}
+
+.bottomgif {
+  left: 23%;
+  width: 57%;
+  top: 55%;
+}
+
+.score-div {
+  position: absolute;
+  left: 15%;
+  text-align: center;
+  color: white;
+  top: 8%;
+  font-size: 2vw;
+  width: 14%;
+}
+
+.score {
+  width: 37%;
+  border: 2px solid #db61f1;
+  height: 32px;
+  float: left;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrongimg {
+  width: 4%;
+}
+
+.div1 {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin: 3% 16%;
+  width: 69%;
+  font-size: 1.5vw;
+}
+
+.div2 {
+  width: 62%;
+  text-align: justify;
+  margin: 0% 18%;
 }
