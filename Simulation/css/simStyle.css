@@ -1002,3 +1002,75 @@ ul li::marker {
 .btn-submit:hover {
   background-color: #867e03;
 }
+
+/* Level 2 Result Modal Styling */
+.level-2-result-content {
+  position: relative;
+  width: 35%;
+  padding: 40px;
+  border: none;
+  background: #fff;
+  border-radius: 20px;
+}
+
+.level-2-result-content h2 {
+  font-size: 2.5vw;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.score-display {
+  font-size: 2vw;
+  margin: 20px 0;
+  font-weight: bold;
+  color: #555;
+}
+
+.score-display span {
+  font-size: 3vw;
+  color: #d35400;
+}
+
+.feedback-text {
+  font-size: 1.6vw;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Close Button (Top-Right) */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 2vw;
+  cursor: pointer;
+  color: #999;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+/* Feedback Background Classes */
+.correct {
+  background-color: #2ecc71 !important;
+  /* Green for 10 points */
+  color: #fff !important;
+}
+
+.good {
+  background-color: #f1c40f !important;
+  /* Yellow/Orange for 5 points */
+  color: #000 !important;
+}
+
+.wrong {
+  background-color: #e74c3c !important;
+  /* Red for 0 points */
+  color: #fff !important;
+}

@@ -307,17 +307,28 @@
             </ul>
         </div>
 
-    </div>
-    <!-- end level 2 shot 3 -->
+        <!-- end level 2 shot 3 -->
 
-    <!-- Validation Modal -->
-    <div class="custom-modal" id="validation-modal">
-        <div class="modal-content">
-            <h2>⚠️ OOPS!</h2>
-            <p>Please select 3 items before submitting.</p>
-            <button class="modal-btn" onclick="$('#validation-modal').removeClass('active">OK</button>
+        <!-- Validation Modal -->
+        <div class="custom-modal" id="validation-modal">
+            <div class="modal-content">
+                <h2>⚠️ OOPS!</h2>
+                <p>Please select 3 items before submitting.</p>
+                <button class="modal-btn" onclick="$('#validation-modal').removeClass('active')">OK</button>
+            </div>
         </div>
-    </div>
+
+        <!-- Level 2 Result Modal -->
+        <div class="custom-modal" id="level-2-result-modal">
+            <div class="modal-content level-2-result-content">
+                <button class="close-btn" onclick="$('#level-2-result-modal').removeClass('active')">✖</button>
+                <h2>Result</h2>
+                <div class="score-display">
+                    <span id="l2-score">0</span> Points
+                </div>
+                <p id="l2-feedback" class="feedback-text"></p>
+            </div>
+        </div>
 
     </div>
 </body>

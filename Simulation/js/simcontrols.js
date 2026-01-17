@@ -314,4 +314,56 @@ $(document).ready(function () {
     }
     updateActiveOption();
   });
+
+  // --- Level 2 Submit Logic ---
+  $('.btn-submit').click(function () {
+    // Options are mapped by index:
+    // 0: A (Haste)
+    // 1: B (Smart)
+    // 2: C (Cautious)
+    // 3: D
+    // 4: E
+    // 5: F
+    // 6: G
+    // 7: H
+
+    let selectedOptionIndex = currentOptionIndex;
+    let score = 0;
+    let feedback = "";
+    let feedbackClass = ""; // correct, good, wrong
+
+    // Remove existing classes
+    $('#l2-feedback').removeClass('correct good wrong');
+
+    if (selectedOptionIndex === 1) {
+      // OPTION B: Smart
+      score = 10;
+      feedback = "Smart! Risks must be calculated, not blind.";
+      feedbackClass = "correct";
+    } else if (selectedOptionIndex === 2) {
+      // OPTION C: Cautious
+      score = 5;
+      feedback = "Too cautious—sometimes you must explore.";
+      feedbackClass = "good";
+    } else {
+      // OPTION A and others (D-H): Fear or Haste
+      score = 0;
+      feedback = "Fear or haste both hurt business.";
+      feedbackClass = "wrong";
+    }
+
+    // Populate Modal
+    $('#l2-score').text(score);
+    $('#l2-feedback').text(feedback);
+    $('#l2-feedback').addClass(feedbackClass);
+
+    // Show Modal
+    $('#level-2-result-modal').addClass('active');
+  });
+
+
+  // --- Close Modal ---
+  $('.close-btn').click(function () {
+    $('btn-submit').hide();
+  });
 });
