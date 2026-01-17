@@ -824,3 +824,112 @@ ul li::marker {
   background-size: 100% 100%;
   top: 20%;
 }
+
+.main-heading-5 {
+  background: url(../images/LEVEL_03/TEXT_CHART.png);
+  background-size: 100% 100%;
+  top: 20%;
+}
+
+.main-heading-6 {
+  background: url(../images/LEVEL_03/TEXT_CHART.png);
+  background-size: 100% 100%;
+  width: 34%;
+  top: 8%;
+}
+
+.main-heading-5 h1 {
+  position: absolute;
+  top: 40%;
+  font-size: 2.5vw;
+  color: #ffffff;
+  margin: 0;
+}
+
+.main-heading-6 h1 {
+  position: absolute;
+  top: 40%;
+  font-size: 1.4vw;
+  color: #ffffff;
+  margin: 0;
+}
+
+.flex-container {
+  text-align: center;
+}
+
+.p1 {
+  position: absolute;
+  top: 16%;
+  padding: 0% 20%;
+}
+
+.subDiv {
+  position: absolute;
+  border: 1px solid #d41e1b;
+  background-color: #d41e1b;
+  top: 26%;
+  padding: 1% 3%;
+  margin: 0% 26%;
+  color: white;
+  border-radius: 7px;
+  font-size: 1.7vw;
+  width: 42%;
+}
+
+.card-Container {
+  position: absolute;
+  top: 38%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 3%;
+}
+
+.card-Container div {
+  border: 2px solid #014bae;
+  width: 19%;
+  height: 30%;
+  border-radius: 9px;
+}
+
+.cardgif {
+  width: 100%;
+  background-color: white;
+  border-radius: 9px 9px 0 0;
+  position: relative !important;
+}
+
+.bottomDiv {
+  height: 26% !important;
+  width: 99% !important;
+  background-color: #014bae;
+  border-radius: 0 0 9px 9px !important;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.radio_level3 {
+  width: 100%;
+  height: 17%;
+  cursor: pointer;
+  margin-top: 6%;
+}
+
+.level-3-submit-btn {
+  position: absolute;
+  width: 10%;
+  height: 6%;
+  left: 46%;
+  top: 79.9%;
+  font-size: 1.3vw;
+  color: #fff;
+  background-color: #f48309;
+  border-radius: 10px;
+  box-shadow: none;
+  border: 3px solid #c86709;
+  cursor: pointer;
+}
