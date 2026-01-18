@@ -388,5 +388,222 @@ $(document).ready(function () {
   $('.close-btn').click(function () {
     $('.btn-submit').hide(); // Hides the submit button after result is shown
     $('#level-2-result-modal').removeClass('active');
+
+    // Level 2 Transition: Show Next Level Button if we are in Level 2
+    if ($('.level_2_03').is(':visible')) {
+      $('.next-level-2').removeClass('d-none').hide().fadeIn(500);
+    }
+  });
+
+  // --- Level 1 to Level 2 Transition Trigger (Already in code but ensure flow) ---
+  // Managed by .next-level-1 click
+
+  // --- Level 2 Extra Logic ---
+  // Hide arrows on submit
+  $('.btn-submit').click(function () {
+    $('.round-arrow').addClass('d-none');
+    $('.btn-submit').addClass('d-none'); // Hide submit immediately too? User said "after submitting hide".
+    // Existing handler handles logic and modal. 
+  });
+
+  // --- Level 2 -> Level 3 Transition ---
+  $('.next-level-2').click(function () {
+    $('.level_1').addClass('d-none');
+    $('.level_2').fadeOut(500, function () {
+      // Show L3 Roadmap
+      $('.level_3_01').removeClass('d-none').hide().fadeIn(500);
+    });
+  });
+
+  // --- Level 3 Navigation ---
+  // Roadmap (level_3_01) -> Intro (level_3_02)
+  // Note: HTML uses generic .btn-go. We need to target specific context or ensure .btn-go handles it.
+  // The L3 HTML I added has: <button class="btn-go btn">GO</button>
+  // Let's add specific handler for L3 context if generic one doesn't cover or to be safe.
+  $(document).on('click', '.level_3_01 .btn-go', function () {
+    $('.level_3_01').fadeOut(500, function () {
+      $('.level_3_02').removeClass('d-none').hide().fadeIn(500);
+    });
+  });
+
+  // Intro -> Game
+  $('.next-3').click(function () {
+    $('.level_3_02').fadeOut(500, function () {
+      $('.level_3_03').removeClass('d-none').hide().fadeIn(500);
+      loadL3Story(0);
+    });
+  });
+
+  // --- Level 3 Game Logic (Adapted to Radio Buttons) ---
+  const l3Stories = [
+    {
+      text: "Your product didn’t sell well in the first month.",
+      options: [
+        { text: "Stop business immediately.", score: 0, img: "images/LEVEL_03/BOX03.gif", feedback: "Giving up too soon!" },
+        { text: "Blame customers for not buying.", score: -2, img: "images/LEVEL_03/BOX02.gif", feedback: "Blaming others won't help." },
+        { text: "Survey customers and improve the product.", score: 10, img: "images/LEVEL_03/BOX01.gif", feedback: "Great! Adaptation is key." }
+      ]
+    },
+    {
+      text: "A key customer left a negative review online.",
+      options: [
+        { text: "Delete the review and block them.", score: 0, img: "images/LEVEL_03/BOX03.gif", feedback: "Ignoring feedback is risky." },
+        { text: "Reply angrily defending your product.", score: -2, img: "images/LEVEL_03/BOX02.gif", feedback: "Anger damages reputation." },
+        { text: "Apologize and ask how to fix it.", score: 10, img: "images/LEVEL_03/BOX01.gif", feedback: "Excellent! Customer service matters." }
+      ]
+    },
+    {
+      text: "You missed a major project deadline due to poor planning.",
+      options: [
+        { text: "Pretend it didn't happen.", score: 0, img: "images/LEVEL_03/BOX03.gif", feedback: "Denial solves nothing." },
+        { text: "Blame your team members.", score: -2, img: "images/LEVEL_03/BOX02.gif", feedback: "Leaders take responsibility." },
+        { text: "Admit mistake and propose a new timeline.", score: 10, img: "images/LEVEL_03/BOX01.gif", feedback: "Honesty builds trust." }
+      ]
+    },
+  ];
+
+  let l3CurrentStory = 0;
+  let l3TotalScore = 0;
+
+  function loadL3Story(index) {
+    if (index >= l3Stories.length) {
+      showL3Result();
+      return;
+    }
+
+    // Reset UI
+    $('input[name="level3"]').prop('checked', false);
+
+    // Load Content
+    const story = l3Stories[index];
+    $('.subDiv').text(story.text); // Question Text
+
+    // Update Cards
+    const cardDivs = $('.card-Container > div');
+    story.options.forEach((opt, i) => {
+      if (cardDivs[i]) {
+        $(cardDivs[i]).find('.cardgif').attr('src', opt.img);
+        $(cardDivs[i]).find('.bottomDiv').text(opt.text);
+        $(cardDivs[i]).find('input').val(i);
+      }
+    });
+  }
+
+  // Handle Level 3 Submit
+  $('.level-3-submit-btn').click(function () {
+    const selectedRadio = $('input[name="level3"]:checked');
+    if (selectedRadio.length === 0) {
+      $('#validation-modal p').text("Please select an option!");
+      $('#validation-modal').addClass('active');
+      return;
+    }
+
+    const selectedIndex = parseInt(selectedRadio.val());
+    const story = l3Stories[l3CurrentStory];
+    const selectedOption = story.options[selectedIndex];
+
+    l3TotalScore += selectedOption.score;
+
+    // Optional: Show immediate feedback? User requirements say "Feedback: That's how entrepreneurs grow" etc. 
+    // which is shown in the FINAL result screen based on the prompt "after submitting... go to next level".
+    // The user prompt "Feedback: ..." seems to imply final result message.
+
+    l3CurrentStory++;
+    loadL3Story(l3CurrentStory);
+  });
+
+  function showL3Result() {
+    if (l3TotalScore > 20) l3TotalScore = 20;
+    if (l3TotalScore < 0) l3TotalScore = 0;
+
+    let feedback = "";
+    if (l3TotalScore >= 15) feedback = "That’s how entrepreneurs grow! ✅";
+    else feedback = "Blaming never solves problems. ❌";
+
+    $('.level_3_03').fadeOut(500, function () {
+      $('.level_3_05').removeClass('d-none').hide().fadeIn(500);
+
+      // Update Result UI
+      $('.level_3_05 .score').text(l3TotalScore);
+      $('.level_3_05 .msgDiv .div2').text(feedback);
+
+      // Icon logic
+      if (l3TotalScore >= 15) {
+        $('.level_3_05 .wrongimg').eq(0).addClass('d-none'); // Hide Wrong
+        $('.level_3_05 .wrongimg').eq(1).removeClass('d-none'); // Show Tick
+      } else {
+        $('.level_3_05 .wrongimg').eq(0).removeClass('d-none'); // Show Wrong
+        $('.level_3_05 .wrongimg').eq(1).addClass('d-none'); // Hide Tick
+      }
+    });
+  }
+
+  // --- Level 3 Result -> Level 4 Transition ---
+  $(document).on('click', '.next-level-3', function () {
+    $('.level_3_05').fadeOut(500, function () {
+      $('.level_4_01').removeClass('d-none').hide().fadeIn(500);
+    });
+  });
+
+  // --- Level 4 Navigation ---
+  $('.btn-go-4').click(function () {
+    $('.level_4_01').fadeOut(500, function () {
+      $('.level_4_02').removeClass('d-none').hide().fadeIn(500);
+    });
+  });
+
+  $('.next-4').click(function () {
+    $('.level_4_02').fadeOut(500, function () {
+      $('.level_4_03').removeClass('d-none').hide().fadeIn(500);
+    });
+  });
+
+  // --- Level 4 Game Logic ---
+
+  // Selection
+  $(document).on('click', '.l4-card', function () {
+    if ($(this).hasClass('selected')) {
+      $(this).removeClass('selected');
+    } else {
+      if ($('.l4-card.selected').length < 3) {
+        $(this).addClass('selected');
+      }
+    }
+  });
+
+  // Submit
+  $('.level-4-submit-btn').click(function () {
+    const selected = $('.l4-card.selected');
+    if (selected.length !== 3) {
+      $('#validation-modal p').text("Please select exactly 3 statements.");
+      $('#validation-modal').addClass('active');
+      return;
+    }
+
+    let score = 0;
+    selected.each(function () {
+      score += parseInt($(this).data('score'));
+    });
+
+    // Bonus Logic
+    if (score === 15) score = 20;
+    if (score < 0) score = 0;
+
+    // Power Bar
+    const percentage = (score / 20) * 100;
+    $('.power-bar-fill').css('height', percentage + '%');
+
+    // Result
+    setTimeout(function () {
+      $('#l4-final-score').text(score);
+
+      let feedback = "";
+      if (score >= 15) feedback = "High Confidence! You are ready to lead! 🚀";
+      else if (score >= 5) feedback = "Good start, but believe in yourself more! 💪";
+      else feedback = "Don't let doubt stop you. Keep pushing! 🧗";
+
+      $('#l4-final-feedback').text(feedback);
+      $('#level-4-result-modal').addClass('active');
+    }, 1000);
   });
 });
