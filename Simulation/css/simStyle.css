@@ -1927,3 +1927,8 @@ ul li::marker {
   transform: scale(1.05);
   background: #f0f0f0;
 }
+
+.result-last {
+  left: 72% !important;
+  width: 37% !important;
+}
