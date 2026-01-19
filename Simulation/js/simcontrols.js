@@ -6,25 +6,24 @@ $(document).ready(function () {
 
   // 1. Intro -> Roadmap (Auto after 5s)
   setTimeout(function () {
-    $('.level_1_01').fadeOut(500, function () {
-      $('.level_1_02').removeClass('d-none').hide().fadeIn(500);
-    });
+    $('.level_1_01').fadeOut(500);
+    $('.level_1_02').removeClass('d-none').hide().fadeIn(500);
   }, 5000);
 
   // 2. Roadmap -> Scene 3 (Click Start)
   // Trying both ID and class to be safe based on HTML inspection
+  // 2. Roadmap -> Scene 3 (Click Start)
   $('#start-arrow, .start-arrow, .start-arrow-text').click(function () {
-    $('.level_1_02').fadeOut(500, function () {
-      $('.level_1_03').removeClass('d-none').hide().fadeIn(500);
-    });
+    $('.level_1_02').fadeOut(500);
+    $('.level_1_03').removeClass('d-none').hide().fadeIn(500);
   });
 
   // 3. Scene 3 -> Game (Click Next)
+  // 3. Scene 3 -> Game (Click Next)
   $('.next-1').click(function () {
-    $('.level_1_03').fadeOut(500, function () {
-      $('.level_1_04').removeClass('d-none').hide().fadeIn(500);
-      startTime = Date.now(); // Reset timer when game starts
-    });
+    $('.level_1_03').fadeOut(500);
+    $('.level_1_04').removeClass('d-none').hide().fadeIn(500);
+    startTime = Date.now(); // Reset timer when game starts
   });
 
   // Function to manage draggable state based on drop count
@@ -317,25 +316,22 @@ $(document).ready(function () {
 
   // --- Level 1 to Level 2 Transition ---
   $('.next-level-1').click(function () {
-    $('.level_1_05').fadeOut(500, function () {
-      $('.level_2_01').removeClass('d-none').hide().fadeIn(500);
-    });
+    $('.level_1_05').fadeOut(500);
+    $('.level_2_01').removeClass('d-none').hide().fadeIn(500);
   });
 
   // --- Level 2 Navigation ---
   // Roadmap (level_2_01) -> Intro (level_2_02)
   // Roadmap (level_2_01) -> Intro (level_2_02)
   $('.level_2_01 .btn-go').click(function () {
-    $('.level_2_01').fadeOut(500, function () {
-      $('.level_2_02').removeClass('d-none').hide().fadeIn(500);
-    });
+    $('.level_2_01').fadeOut(500);
+    $('.level_2_02').removeClass('d-none').hide().fadeIn(500);
   });
 
   // Intro (level_2_02) -> Wheel Game (level_2_03)
   $('.next-2').click(function () {
-    $('.level_2_02').fadeOut(500, function () {
-      $('.level_2_03').removeClass('d-none').hide().fadeIn(500);
-    });
+    $('.level_2_02').fadeOut(500);
+    $('.level_2_03').removeClass('d-none').hide().fadeIn(500);
   });
 
   // --- Level 2 Submit Logic ---
@@ -410,10 +406,9 @@ $(document).ready(function () {
   // --- Level 2 -> Level 3 Transition ---
   $('.next-level-2').click(function () {
     $('.level_1').addClass('d-none');
-    $('.level_2').fadeOut(500, function () {
-      // Show L3 Roadmap
-      $('.level_3_01').removeClass('d-none').hide().fadeIn(500);
-    });
+    $('.level_2').fadeOut(500);
+    // Show L3 Roadmap
+    $('.level_3_01').removeClass('d-none').hide().fadeIn(500);
   });
 
   // --- Level 3 Navigation ---
@@ -423,18 +418,18 @@ $(document).ready(function () {
   // Let's add specific handler for L3 context if generic one doesn't cover or to be safe.
   // Roadmap (level_3_01) -> Intro (level_3_02)
   // Specific handler for Level 3
+  // Roadmap (level_3_01) -> Intro (level_3_02)
+  // Specific handler for Level 3
   $('#go-level-3-btn').click(function () {
-    $('.level_3_01').fadeOut(500, function () {
-      $('.level_3_02').removeClass('d-none').hide().fadeIn(500);
-    });
+    $('.level_3_01').fadeOut(500);
+    $('.level_3_02').removeClass('d-none').hide().fadeIn(500);
   });
 
   // Intro -> Game
   $('.next-3').click(function () {
-    $('.level_3_02').fadeOut(500, function () {
-      $('.level_3_03').removeClass('d-none').hide().fadeIn(500);
-      loadL3Story(0);
-    });
+    $('.level_3_02').fadeOut(500);
+    $('.level_3_03').removeClass('d-none').hide().fadeIn(500);
+    loadL3Story(0);
   });
 
   // --- Level 3 Game Logic (Adapted to Radio Buttons) ---
@@ -523,44 +518,40 @@ $(document).ready(function () {
     if (l3TotalScore >= 15) feedback = "That’s how entrepreneurs grow! ✅";
     else feedback = "Blaming never solves problems. ❌";
 
-    $('.level_3_03').fadeOut(500, function () {
-      $('.level_3_05').removeClass('d-none').hide().fadeIn(500);
+    $('.level_3_03').fadeOut(500);
+    $('.level_3_05').removeClass('d-none').hide().fadeIn(500);
 
-      // Update Result UI
-      $('.level_3_05 .score').text(l3TotalScore);
-      $('.level_3_05 .msgDiv .div2').text(feedback);
+    // Update Result UI
+    $('.level_3_05 .score').text(l3TotalScore);
+    $('.level_3_05 .msgDiv .div2').text(feedback);
 
-      // Icon logic
-      if (l3TotalScore >= 15) {
-        $('.level_3_05 .wrongimg').eq(0).addClass('d-none'); // Hide Wrong
-        $('.level_3_05 .wrongimg').eq(1).removeClass('d-none'); // Show Tick
-      } else {
-        $('.level_3_05 .wrongimg').eq(0).removeClass('d-none'); // Show Wrong
-        $('.level_3_05 .wrongimg').eq(1).addClass('d-none'); // Hide Tick
-      }
-    });
+    // Icon logic
+    if (l3TotalScore >= 15) {
+      $('.level_3_05 .wrongimg').eq(0).addClass('d-none'); // Hide Wrong
+      $('.level_3_05 .wrongimg').eq(1).removeClass('d-none'); // Show Tick
+    } else {
+      $('.level_3_05 .wrongimg').eq(0).removeClass('d-none'); // Show Wrong
+      $('.level_3_05 .wrongimg').eq(1).addClass('d-none'); // Hide Tick
+    }
   }
 
   // --- Level 3 Result -> Level 4 Transition ---
   $(document).on('click', '.next-level-3', function () {
-    $('.level_3_05').fadeOut(500, function () {
-      $('.level_4_01').removeClass('d-none').hide().fadeIn(500);
-    });
+    $('.level_3_05').fadeOut(500);
+    $('.level_4_01').removeClass('d-none').hide().fadeIn(500);
   });
 
   // --- Level 4 Navigation ---
   // Roadmap -> Intro
   $('.go-level-4').click(function () {
-    $('.level_4_01').fadeOut(500, function () {
-      $('.level_4_02').removeClass('d-none').hide().fadeIn(500);
-    });
+    $('.level_4_01').fadeOut(500);
+    $('.level_4_02').removeClass('d-none').hide().fadeIn(500);
   });
 
   // Intro -> Game
   $('.next-4').click(function () {
-    $('.level_4_02').fadeOut(500, function () {
-      $('.level_4_03').removeClass('d-none').hide().fadeIn(500);
-    });
+    $('.level_4_02').fadeOut(500);
+    $('.level_4_03').removeClass('d-none').hide().fadeIn(500);
   });
 
   // --- Level 4 Game Logic ---
@@ -634,7 +625,7 @@ $(document).ready(function () {
 
       // Add Next Level button if missing
       if ($('.next-level-4').length === 0) {
-        $('.level_4_last').append('<button class="next-btn next-level-4" style="position:absolute; bottom: 20px; right: 20px;">NEXT LEVEL</button>');
+        $('.level_4_last').append('<button class="next-btn next-level-4">NEXT LEVEL</button>');
       }
     });
   });
@@ -650,17 +641,15 @@ $(document).ready(function () {
 
   // Map -> Intro
   $('.go-level-5').click(function () {
-    $('.level_5_01').fadeOut(500, function () {
-      $('.level_5_02').removeClass('d-none').hide().fadeIn(500);
-    });
+    $('.level_5_01').fadeOut(500);
+    $('.level_5_02').removeClass('d-none').hide().fadeIn(500);
   });
 
   // Intro -> Game
   $('.next-5').click(function () {
-    $('.level_5_02').fadeOut(500, function () {
-      $('.level_5_03').removeClass('d-none').hide().fadeIn(500);
-      resetL5Game();
-    });
+    $('.level_5_02').fadeOut(500);
+    $('.level_5_03').removeClass('d-none').hide().fadeIn(500);
+    resetL5Game();
   });
 
   // --- Level 5 Game Logic ---
@@ -736,9 +725,8 @@ $(document).ready(function () {
   // --- Final Scene Logic ---
   $('.next-last').click(function () {
     // Hide Level 5
-    $('.level_5').fadeOut(500, function () {
-      $('.scene.last').removeClass('d-none').hide().fadeIn(500);
-    });
+    $('.level_5').fadeOut(500);
+    $('.scene.last').removeClass('d-none').hide().fadeIn(500);
 
     // Calculate Total Score
     let s1 = parseInt($('.score-chart .point span').text()) || 0;
