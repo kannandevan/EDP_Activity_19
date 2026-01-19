@@ -839,6 +839,16 @@ ul li::marker {
   top: 20%;
 }
 
+.main-heading-1 {
+  background: url(../images/LEVEL_01/TEXT_CHART.png);
+  background-size: 100% 100%;
+  top: 10%;
+}
+
+.main-heading-1 h1 {
+  color: white;
+  top: 30%;
+}
 
 .sub-heading {
   position: absolute;
@@ -861,6 +871,21 @@ ul li::marker {
   font-size: 2vw;
   color: #1a1a1a;
   margin: 0;
+}
+
+.sub-heading-1-1 {
+  background: url(../images/LEVEL_01/TEXT_CHART.png);
+  background-size: 100% 100%;
+  top: 12%;
+}
+
+.sub-heading-1-1 h1 {
+  color: white;
+  top: 44%;
+  left: 23%;
+  font-size: 2vw;
+  text-align: center;
+
 }
 
 .sub-heading-2-1 {
