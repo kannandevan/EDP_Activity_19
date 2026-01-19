@@ -629,13 +629,59 @@ $(document).ready(function () {
       $('.level_4_last .score-value').text(score);
 
       // Update Progress Bar
-      // Max 20 -> 100%
-      // 45% is the height of .progress-fill in CSS maybe? 
-      // User CSS: .progress-fill { height: 45%; }
-      // We should animate this.
       const percentage = (score / 20) * 100;
       $('.progress-fill').css('height', percentage + '%');
 
+      // Add Next Level button if missing
+      if ($('.next-level-4').length === 0) {
+        $('.level_4_last').append('<button class="next-btn next-level-4" style="position:absolute; bottom: 20px; right: 20px;">NEXT LEVEL</button>');
+      }
     });
+  });
+
+  // --- Level 5 Navigation ---
+
+  // L4 Result -> L5 Map
+  $(document).on('click', '.next-level-4', function () {
+    $('.level_4_last').fadeOut(500, function () {
+      $('.level_5_01').removeClass('d-none').hide().fadeIn(500);
+    });
+  });
+
+  // Map -> Intro
+  $('.go-level-5').click(function () {
+    $('.level_5_01').fadeOut(500, function () {
+      $('.level_5_02').removeClass('d-none').hide().fadeIn(500);
+    });
+  });
+
+  // Intro -> Game
+  $('.next-5').click(function () {
+    $('.level_5_02').fadeOut(500, function () {
+      $('.level_5_03').removeClass('d-none').hide().fadeIn(500);
+      resetL5Game();
+    });
+  });
+
+  // --- Level 5 Game Logic ---
+
+  function resetL5Game() {
+    $('.l5-option').removeClass('selected');
+  }
+
+  // Selection
+  $('.l5-option').click(function () {
+    $('.l5-option').removeClass('selected');
+    $(this).addClass('selected');
+  });
+
+  // Submit
+  $('.level-5-submit-btn').click(function () {
+    const selected = $('.l5-option.selected');
+    if (selected.length === 0) {
+      $('#validation-modal p').text("Please select an option!");
+      $('#validation-modal').addClass('active');
+      return;
+    }
   });
 });
