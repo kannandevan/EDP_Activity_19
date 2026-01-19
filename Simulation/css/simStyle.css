@@ -876,6 +876,17 @@ ul li::marker {
   top: 12%;
 }
 
+.sub-heading-5-1 {
+  width: 55%;
+  background: url(../images/LEVEL_05/TEXT_CHART.png);
+  background-size: 100% 100%;
+  top: 12%;
+}
+
+.sub-heading-5-1 h1 {
+  color: white;
+}
+
 .roulette {
   position: absolute;
   width: 30%;
@@ -1596,4 +1607,19 @@ ul li::marker {
   top: 10%;
   /* background-color: #fff; */
   top: 22%;
+}
+
+
+.level-5-instruction {
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.level-5-h1 {
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4vw;
+  font-weight: normal;
 }
