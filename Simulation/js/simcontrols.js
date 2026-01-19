@@ -324,7 +324,8 @@ $(document).ready(function () {
 
   // --- Level 2 Navigation ---
   // Roadmap (level_2_01) -> Intro (level_2_02)
-  $('.btn-go').click(function () {
+  // Roadmap (level_2_01) -> Intro (level_2_02)
+  $('.level_2_01 .btn-go').click(function () {
     $('.level_2_01').fadeOut(500, function () {
       $('.level_2_02').removeClass('d-none').hide().fadeIn(500);
     });
@@ -420,7 +421,9 @@ $(document).ready(function () {
   // Note: HTML uses generic .btn-go. We need to target specific context or ensure .btn-go handles it.
   // The L3 HTML I added has: <button class="btn-go btn">GO</button>
   // Let's add specific handler for L3 context if generic one doesn't cover or to be safe.
-  $(document).on('click', '.level_3_01 .btn-go', function () {
+  // Roadmap (level_3_01) -> Intro (level_3_02)
+  // Specific handler for Level 3
+  $('#go-level-3-btn').click(function () {
     $('.level_3_01').fadeOut(500, function () {
       $('.level_3_02').removeClass('d-none').hide().fadeIn(500);
     });
