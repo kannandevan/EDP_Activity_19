@@ -5,10 +5,10 @@ $(document).ready(function () {
   // --- Level Flow ---
 
   // 1. Intro -> Roadmap (Auto after 5s)
-  setTimeout(function () {
-    $('.level_1_01').fadeOut(500);
-    $('.level_1_02').removeClass('d-none').hide().fadeIn(500);
-  }, 5000);
+  // setTimeout(function () {
+  //   $('.level_1_01').fadeOut(500);
+  //   $('.level_1_02').removeClass('d-none').hide().fadeIn(500);
+  // }, 5000);
 
   // 2. Roadmap -> Scene 3 (Click Start)
   // Trying both ID and class to be safe based on HTML inspection
