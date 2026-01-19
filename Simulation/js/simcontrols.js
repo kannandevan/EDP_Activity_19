@@ -5,11 +5,11 @@ $(document).ready(function () {
   // --- Level Flow ---
 
   // 1. Intro -> Roadmap (Auto after 5s)
-  // setTimeout(function () {
-  //   $('.level_1_01').fadeOut(500, function () {
-  //     $('.level_1_02').removeClass('d-none').hide().fadeIn(500);
-  //   });
-  // }, 5000);
+  setTimeout(function () {
+    $('.level_1_01').fadeOut(500, function () {
+      $('.level_1_02').removeClass('d-none').hide().fadeIn(500);
+    });
+  }, 5000);
 
   // 2. Roadmap -> Scene 3 (Click Start)
   // Trying both ID and class to be safe based on HTML inspection
@@ -683,5 +683,92 @@ $(document).ready(function () {
       $('#validation-modal').addClass('active');
       return;
     }
+
+    const choiceId = parseInt(selected.data('option'));
+    let score = 0;
+    let feedbackText = "";
+    let isCorrect = false;
+
+    // Scoring Logic
+    if (choiceId === 1) { // Wait more
+      score = -2;
+      feedbackText = "Delays cost money and trust. ❌";
+      isCorrect = false;
+    } else if (choiceId === 2) { // Alternative supplier
+      score = 10;
+      feedbackText = "Right on time—decisive action keeps business alive. ✅";
+      isCorrect = true;
+    } else if (choiceId === 3) { // Stop production
+      score = 0;
+      feedbackText = "Stopping production halts progress. ❌";
+      isCorrect = false;
+    }
+
+    const scoreDisplay = (score > 0) ? "+" + score : score;
+
+    // Update Result UI
+    $('.l5-score-val').text(scoreDisplay);
+    $('.l5-fb-text').text(feedbackText);
+
+    if (isCorrect) {
+      $('.l5-points-pill').css('background', '#f1c40f'); // Yellow
+      $('.l5-fb-icon.correct').removeClass('d-none');
+      $('.l5-fb-icon.wrong').addClass('d-none');
+    } else {
+      if (score < 0) $('.l5-points-pill').css('background', '#e74c3c'); // Red
+      else $('.l5-points-pill').css('background', '#95a5a6'); // Grey
+
+      $('.l5-fb-icon.correct').addClass('d-none');
+      $('.l5-fb-icon.wrong').removeClass('d-none');
+    }
+
+    // Transition: Fade out options, Fade in Result
+    $('.level-5-options').fadeOut(500, function () {
+      $('.level-5-result').removeClass('d-none').css('display', 'flex').hide().fadeIn(500);
+
+      // Show Next Last button after 4 seconds
+      setTimeout(function () {
+        $('.next-last').removeClass('d-none').hide().fadeIn(500);
+      }, 4000);
+    });
+  });
+
+  // --- Final Scene Logic ---
+  $('.next-last').click(function () {
+    // Hide Level 5
+    $('.level_5').fadeOut(500, function () {
+      $('.scene.last').removeClass('d-none').hide().fadeIn(500);
+    });
+
+    // Calculate Total Score
+    let s1 = parseInt($('.score-chart .point span').text()) || 0;
+    let s2 = parseInt($('#l2-score').text()) || 0;
+    let s3 = (typeof l3TotalScore !== 'undefined') ? l3TotalScore : 0;
+    let s4 = parseInt($('.level_4_last .score-value').text()) || 0;
+    let s5 = parseInt($('.level-5-result .l5-score-val').text().replace('+', '')) || 0;
+
+    let totalScore = s1 + s2 + s3 + s4 + s5;
+
+    // Cap at 100? (20*5 = 100 max presumably)
+    if (totalScore < 0) totalScore = 0;
+
+    // Display in Final Scoreboard
+    $('.scene.last .l5-score-val').text(totalScore);
+
+    // Update specific text for final scene
+    $('.scene.last .l5-score-header').text("TOTAL SCORE");
+    $('.scene.last .l5-fb-text').text("Outstanding! You have mastered the qualities of an entrepreneur.");
+
+    // Hide icons logic for final scene if needed, or ensure tick is shown
+    $('.scene.last .l5-fb-icon').addClass('d-none');
+    $('.scene.last .l5-fb-icon.correct').removeClass('d-none');
+
+    // Hide close button in final result board
+    $('.scene.last .l5-close-btn').hide();
+  });
+
+  // Redo Button
+  $(document).on('click', '.redo-btn', function () {
+    location.reload();
   });
 });
