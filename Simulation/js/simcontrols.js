@@ -549,12 +549,14 @@ $(document).ready(function () {
   });
 
   // --- Level 4 Navigation ---
-  $('.btn-go-4').click(function () {
+  // Roadmap -> Intro
+  $('.go-level-4').click(function () {
     $('.level_4_01').fadeOut(500, function () {
       $('.level_4_02').removeClass('d-none').hide().fadeIn(500);
     });
   });
 
+  // Intro -> Game
   $('.next-4').click(function () {
     $('.level_4_02').fadeOut(500, function () {
       $('.level_4_03').removeClass('d-none').hide().fadeIn(500);
@@ -563,50 +565,77 @@ $(document).ready(function () {
 
   // --- Level 4 Game Logic ---
 
-  // Selection
-  $(document).on('click', '.l4-card', function () {
-    if ($(this).hasClass('selected')) {
-      $(this).removeClass('selected');
+  // Selection Logic
+  $('.option-bar').click(function () {
+    const dot = $(this).find('.radio-dot');
+
+    if (dot.hasClass('selected')) {
+      dot.removeClass('selected');
     } else {
-      if ($('.l4-card.selected').length < 3) {
-        $(this).addClass('selected');
+      // Count current selected
+      const currentSelected = $('.radio-dot.selected').length;
+      if (currentSelected < 3) {
+        dot.addClass('selected');
       }
     }
   });
 
-  // Submit
+  // Submit Logic
   $('.level-4-submit-btn').click(function () {
-    const selected = $('.l4-card.selected');
-    if (selected.length !== 3) {
+    const selectedDots = $('.radio-dot.selected');
+
+    if (selectedDots.length !== 3) {
+      // Use generic modal or alert
       $('#validation-modal p').text("Please select exactly 3 statements.");
       $('#validation-modal').addClass('active');
       return;
     }
 
     let score = 0;
-    selected.each(function () {
-      score += parseInt($(this).data('score'));
+
+    // Scoring Map
+    const scoreMap = {
+      "I believe in my ideas and will work hard.": 5,
+      "I should quit because others are better.": -2,
+      "Every failure is a step to success.": 5,
+      "I’ll wait for someone to push me.": -2,
+      "I can achieve my goals with persistence.": 5,
+      "I doubt my abilities.": -2
+    };
+
+    selectedDots.each(function () {
+      // Find the text in the sibling span
+      const text = $(this).siblings('span').text().trim();
+      if (scoreMap.hasOwnProperty(text)) {
+        score += scoreMap[text];
+      }
     });
 
-    // Bonus Logic
-    if (score === 15) score = 20;
+    // Bonus Logic (Max 20)
+    // If they got all 3 correct (5+5+5=15), give bonus 5 to make it 20? 
+    // "Max = 20". Let's assume perfect selection gets max score.
+    if (score === 15) {
+      score = 20;
+    }
+
+    // Clamp
     if (score < 0) score = 0;
 
-    // Power Bar
-    const percentage = (score / 20) * 100;
-    $('.power-bar-fill').css('height', percentage + '%');
+    // Show Result
+    $('.level_4_03').fadeOut(500, function () {
+      $('.level_4_last').removeClass('d-none').hide().fadeIn(500);
 
-    // Result
-    setTimeout(function () {
-      $('#l4-final-score').text(score);
+      // Update Score
+      $('.level_4_last .score-value').text(score);
 
-      let feedback = "";
-      if (score >= 15) feedback = "High Confidence! You are ready to lead! 🚀";
-      else if (score >= 5) feedback = "Good start, but believe in yourself more! 💪";
-      else feedback = "Don't let doubt stop you. Keep pushing! 🧗";
+      // Update Progress Bar
+      // Max 20 -> 100%
+      // 45% is the height of .progress-fill in CSS maybe? 
+      // User CSS: .progress-fill { height: 45%; }
+      // We should animate this.
+      const percentage = (score / 20) * 100;
+      $('.progress-fill').css('height', percentage + '%');
 
-      $('#l4-final-feedback').text(feedback);
-      $('#level-4-result-modal').addClass('active');
-    }, 1000);
+    });
   });
 });
